@@ -1,0 +1,16 @@
+# Docker Container for Database
+# 1) Install Docker (https://www.docker.com/products/docker-desktop)
+# 2) Install Docker Compose
+# 3) Run "docker-compose -f docker-compose.yaml up -d" to create the Docker Container
+version: "3.7"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: onlineManagement
