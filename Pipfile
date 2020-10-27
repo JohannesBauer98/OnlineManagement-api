@@ -7,6 +7,8 @@ name = "pypi"
 flask = "*"
 flasgger = "*"
 flask-marshmallow = "*"
+flask-sqlalchemy
+flask-migrate
 apispec = "*"
 
 [dev-packages]
