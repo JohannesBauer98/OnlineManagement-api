@@ -1,20 +1,33 @@
-from flask import Flask
 from flasgger import Swagger
-from api.route.home import home_api
 
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+from api.route.home import home_api
+from config import Config
+
+import os
 
 def create_app():
-    app = Flask(__name__)
+    newApp = Flask(__name__)
 
-    app.config['SWAGGER'] = {
+    newApp.config.from_object(Config)
+    newApp.config['SWAGGER'] = {
         'title': 'Flask API Starter Kit',
     }
-    swagger = Swagger(app)
+    newApp.config.from_object(os.environ['APP_SETTINGS'])
+    newApp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    swagger = Swagger(newApp)
 
-    app.register_blueprint(home_api, url_prefix='/api')
+    newApp.register_blueprint(home_api, url_prefix='/api')
 
-    return app
+    return newApp
 
+
+app = create_app()
+db = SQLAlchemy(app)
+
+from api.model import user
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
@@ -23,7 +36,5 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--port', default=5000, type=int, help='port to listen on')
     args = parser.parse_args()
     port = args.port
-
-    app = create_app()
 
     app.run(host='0.0.0.0', port=port)
