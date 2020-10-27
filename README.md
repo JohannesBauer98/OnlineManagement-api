@@ -24,7 +24,16 @@ Sample API layout structure to be used as a baseline for other apps
 4. Visit http://localhost/api for the home api
 
 4. Visit http://localhost/apidocs for the swagger documentation
-   
+
+## Database
+
+1. To migrate or upgrade the database just run
+2. Make sure that your environment variables are set correct (see .env) 
+```
+python manage.py db init/upgrade
+python manage.py db migrate
+```
+
 ## Tests
 
 The code is covered by tests, to run the tests please execute
