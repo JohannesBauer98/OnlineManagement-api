@@ -1,6 +1,7 @@
 from flasgger import Swagger
 
 from flask import Flask
+from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
 from api.route.home import home_api
@@ -26,7 +27,7 @@ def create_app():
 
 app = create_app()
 db = SQLAlchemy(app)
-
+login = LoginManager(app)
 from api.model import user
 
 if __name__ == '__main__':
