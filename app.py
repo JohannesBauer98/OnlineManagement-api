@@ -4,7 +4,6 @@ from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
-from api.route.home import home_api
 from config import Config
 
 import os
@@ -20,15 +19,18 @@ def create_app():
     newApp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     swagger = Swagger(newApp)
 
-    newApp.register_blueprint(home_api, url_prefix='/api')
-
     return newApp
 
 
 app = create_app()
 db = SQLAlchemy(app)
 login = LoginManager(app)
-from api.model import user
+
+from api.route.home import home_api
+from user.route.user import user_api
+
+app.register_blueprint(home_api, url_prefix='/api')
+app.register_blueprint(user_api, url_prefix='/user')
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
