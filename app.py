@@ -28,9 +28,11 @@ login = LoginManager(app)
 
 from api.route.home import home_api
 from user.route.user import user_api
+from auth.route.auth import auth_api
 
 app.register_blueprint(home_api, url_prefix='/api')
 app.register_blueprint(user_api, url_prefix='/user')
+app.register_blueprint(auth_api, url_prefix='/auth')
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
