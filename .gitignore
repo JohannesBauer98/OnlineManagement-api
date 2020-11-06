@@ -10,3 +10,6 @@ instance/
 
 # PyCharm stuff:
 .idea
+
+#unnecessary folder
+migrations
