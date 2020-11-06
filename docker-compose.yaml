@@ -14,15 +14,3 @@ services:
       POSTGRES_USER: test
       POSTGRES_PASSWORD: example
       POSTGRES_DB: onlineManagement
-
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@onlinemanagement.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-      PGADMIN_LISTEN_PORT: 80
-    ports:
-      - "8080:80"
-    restart: unless-stopped
-    links:
-      - "db:pgsql-server"
