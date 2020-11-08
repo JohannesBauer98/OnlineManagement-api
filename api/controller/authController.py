@@ -1,8 +1,7 @@
-from http import HTTPStatus
-from flask import Blueprint, abort, jsonify, request, url_for
+from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_user, logout_user
 
-from user.model.user import User
+from api.model.user import User
 
 import datetime
 

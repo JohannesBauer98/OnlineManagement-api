@@ -8,6 +8,7 @@ from config import Config
 
 import os
 
+
 def create_app():
     newApp = Flask(__name__)
 
@@ -26,11 +27,9 @@ app = create_app()
 db = SQLAlchemy(app)
 login = LoginManager(app)
 
-from api.route.home import home_api
-from user.route.user import user_api
-from auth.route.auth import auth_api
+from api.controller.userController import user_api
+from api.controller.authController import auth_api
 
-app.register_blueprint(home_api, url_prefix='/api')
 app.register_blueprint(user_api, url_prefix='/user')
 app.register_blueprint(auth_api, url_prefix='/auth')
 

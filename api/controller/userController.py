@@ -2,7 +2,7 @@ from http import HTTPStatus
 from flask import Blueprint, abort, jsonify, request, url_for
 from flasgger import swag_from
 
-from user.model.user import User, UserDetails
+from api.model.user import User, UserDetails
 from app import db
 
 user_api = Blueprint('user', __name__)
