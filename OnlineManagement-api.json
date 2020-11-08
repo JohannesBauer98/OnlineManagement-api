@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0ac43413-a792-4deb-ab88-579b056e639e",
+		"_postman_id": "b4b5be1f-43b2-4c8f-9219-41f80c5b8699",
 		"name": "OnlineManagement-api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,13 +14,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5000/api/user/2",
+							"raw": "{{baseURL}}/user/2",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5000",
 							"path": [
-								"api",
 								"user",
 								"2"
 							]
@@ -43,11 +41,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5000/user",
+							"raw": "{{baseURL}}/user",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5000",
 							"path": [
 								"user"
 							]
@@ -76,11 +73,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5000/auth/login",
+							"raw": "{{baseURL}}/auth/login",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5000",
 							"path": [
 								"auth",
 								"login"
@@ -95,11 +91,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5000/auth/logout",
+							"raw": "{{baseURL}}/auth/logout",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "5000",
 							"path": [
 								"auth",
 								"logout"
@@ -110,6 +105,35 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1b232640-0eff-4461-a6d5-5903d7404ebf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "38767417-c473-4907-9716-fd94a27fe902",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "828b20ec-b915-4f22-a0cf-8150585e4a6f",
+			"key": "baseURL",
+			"value": "http://localhost:5000"
 		}
 	],
 	"protocolProfileBehavior": {}
